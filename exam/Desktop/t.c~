@@ -1,0 +1,49 @@
+#include<graphics.h>
+#include<math.h>
+int bresen(int,int,int);
+void main()
+{
+		
+	bresen(200,200,10);
+	
+}
+
+int bresen(int xc,int yc,int r)
+{
+	int gd=DETECT,gm,x,y,p;
+
+	initgraph(&gd,&gm,NULL);
+	
+	y=0;
+	p=3-(2*r);
+	putpixel(xc+x,yc-y,RED);
+	
+	for(x=0;x<=y;x=x+1)
+	{
+		if(p<0)
+		{
+			y=y;
+			p=p+(4*x)+6;
+		}
+		else
+		{
+			y=y-1;
+			p=p+(4*(x-y))+10;
+		}
+		putpixel(xc+x,yc+y,RED);
+		putpixel(xc-x,yc+y,RED);
+		putpixel(xc+x,yc-y,1);
+		putpixel(xc-x,yc-y,1);
+		
+		putpixel(xc+y,yc-x,1);
+		putpixel(xc-y,yc+x,1);
+		putpixel(xc+y,yc-x,1);
+		putpixel(xc-y,yc-x,1);
+		
+	
+	}
+	
+	getch();
+	closegraph();
+	return 0;
+}

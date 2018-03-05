@@ -1,0 +1,163 @@
+#include<graphics.h>
+#include<math.h>
+void main()
+{
+int gd=DETECT,gm,i,k;
+	initgraph(&gd,&gm,NULL);
+	bottom1();
+	bottom2();
+	final();
+	getch();
+	closegraph();
+}
+
+int bottom1()
+{
+
+	line(50,420,130,420);//step1base
+	line(130,420,130,400);//upward
+	line(130,400,230,400);//flagstep
+	line(230,400,230,420);//downward
+	line(230,420,310,420);//step2
+	line(180,400,180,125);//pole
+	line(181,400,181,125);
+	arc(180,130,270,90,5);//hook
+	
+	
+	line(90,365,90,300);//body
+	line(90,365,90,420);//leg
+	line(90,365,100,420);//leg
+	circle(90,290,10);//head
+	line(90,310,130,280);
+	
+	line(180,135,130,280);//rope
+	
+	
+	setcolor(RED);
+	rectangle(180,350,220,360);
+	floodfill(181,351,RED);
+	
+	setcolor(WHITE);
+	rectangle(181,361,220,371);
+	floodfill(182,362,WHITE);
+	
+	setcolor(BLUE);
+	circle(200,365,4);
+	floodfill(201,366,BLUE);
+	
+	setcolor(GREEN);
+	rectangle(182,372,220,382);
+	floodfill(183,373,GREEN);
+	
+	setcolor(WHITE);
+	delay(600);
+	cleardevice();
+	
+	
+
+}
+
+
+
+int bottom2()
+{
+
+	line(50,420,130,420);//step1base
+	line(130,420,130,400);//upward
+	line(130,400,230,400);//flagstep
+	line(230,400,230,420);//downward
+	line(230,420,310,420);//step2
+	line(180,400,180,125);//pole
+	line(181,400,181,125);
+	arc(180,130,270,90,5);//hook
+	
+	
+	line(90,365,90,300);//body
+	line(90,365,90,420);//leg
+	line(90,365,100,420);//leg
+	circle(90,290,10);//head
+	line(90,310,130,300);
+	
+	line(180,135,130,300);//rope
+	
+	
+	setcolor(RED);
+	rectangle(180,330,240,340);
+	floodfill(181,331,RED);
+	
+	setcolor(WHITE);
+	rectangle(181,341,240,351);
+	floodfill(182,342,WHITE);
+	
+	setcolor(BLUE);
+	circle(205,346,4);
+	floodfill(206,347,BLUE);
+	int i;
+	
+	for(i=0;i<360;i=i+75)
+	{
+		pieslice(205,346,0+i,5+i,4);
+	}
+	
+	setcolor(GREEN);
+	rectangle(182,352,240,362);
+	floodfill(183,353,GREEN);
+	
+	setcolor(WHITE);
+	delay(600);
+	cleardevice();
+	
+	
+
+}
+
+
+
+
+
+
+
+int final()
+{
+	line(50,420,130,420);//step1base
+	line(130,420,130,400);//upward
+	line(130,400,230,400);//flagstep
+	line(230,400,230,420);//downward
+	line(230,420,310,420);//step2
+	line(180,400,180,125);//pole
+	line(181,400,181,125);
+	arc(180,130,270,90,5);//hook
+	
+	
+	line(90,365,90,300);//body
+	line(90,365,90,420);//leg
+	line(90,365,100,420);//leg
+	circle(90,290,10);//head
+	line(90,310,130,320);
+	
+	line(180,135,130,320);//rope
+	
+	setcolor(RED);
+	rectangle(180,140,340,165);
+	floodfill(181,141,RED);
+	
+	
+	setcolor(WHITE);
+	rectangle(181,166,340,190);
+	floodfill(182,167,WHITE);
+	
+	
+	setcolor(GREEN);
+	rectangle(182,191,340,210);
+	floodfill(183,192,GREEN);
+	
+	
+	
+	setcolor(BLUE);
+	circle(260,177,10);
+	int i;
+	for(i=0;i<360;i=i+30)
+	{
+		pieslice(260,177,0+i,5+i,10);
+	}
+}

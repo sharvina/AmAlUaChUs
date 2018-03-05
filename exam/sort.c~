@@ -1,0 +1,96 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+void print array();
+void bubble_sort();
+void selection_sort();
+void main()
+{
+	int ch;
+	char ch1;
+	do
+	{
+		printf("****MENU****");
+		printf("1.read array\n");
+		printf("2.bubble_sort");
+		printf("3.selection_sort");
+		scanf("%d",&ch);
+		switch(ch)
+		{
+			case 1: selection_sort();
+					break;
+			case 2: bubble_sort();
+					break;
+			case 3:exit(0);
+			       break;
+			default: printf("\n enter a valid choice: ");
+		}
+	}while(ch!=3);
+}
+int *readarray(int *arr,int n)
+{
+	int i;
+	printf("\n Enter the array :");
+	for(i=0;i<n;i++)
+	scanf("%d",arr+i);
+	return arr;
+}
+void bubble_sort()
+{
+	double start_t,end_t,total_t;
+	int n,arr[50],i,j,temp;
+	start_clock();
+	printf("\n Enter the limit :");
+	scanf("%d",&n);
+	printf("\n Enter the array :");
+	for(i=0;i<n;i++)
+		Scanf("%d",&arr[i]);
+	for(i=0;i<n;i++)
+	{
+	  for(j=0;j<n-i-1;j++)
+	  {
+	  	if(arr[j]>arr[j+1])
+	  	{
+	  		temp=arr[j];
+	  		arr[j]=arr[j+1];
+	  		arr[j+1]=temp;
+	  	}
+	}
+}
+end_t=clock();
+printf("\n The array is ");
+for(i=0;i<n;i++)
+{
+	printf("%d",arr[i]);
+	}
+	total_t=(double)(end_t-start_t)/CLOCKS_PER_SEC;
+	printf("\n time take : %f",total_t);
+}	
+void selection()
+{
+	double start_t,end_t,total_t;
+	int n,arr[50],i,j,temp,min;
+	start_clock();
+	printf("\n Enter the limit :");
+	scanf("%d",&n);
+	printf("\n Enter the limit :");
+	for(i=0;i<n;i++)
+		scanf("%d",&arr[i]);	
+	for(i=0;i<n-1;i++)	
+	{
+		min=i;
+		for(j=i+1;j<n;j++)
+		{
+			if(arr[j]<arr[min])
+				swap(&arr[j],&arr[min]);
+		}	
+	}
+end_t=clock();
+printf("\n The array is ");
+for(i=0;i<n;i++)
+{
+	printf("%d",arr[i]);
+	}
+	total_t=(double)(end_t-start_t)/CLOCKS_PER_SEC;
+	printf("\n time take : %fs",total_t);
+}			

@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<sys/socket.h>
+#include<netinet/in.h>
+
+#define port 2000
+#define strlen 100
+
+void reverse (char s[]){
+	int len,i;
+	char temp;
+	
+	printf("\n String : %s",s);
+	
+	for(len=0;s[len]!='\0';len++);
+	len--;
+	
+	for(i=0;i<=len/2;i++){
+		temp=s[len-i];
+		s[len-i]=s[i];
+		s[i]=temp;
+	}
+	
+	printf("\n String : %s",s);
+}
+
+void main(){
+	int sockfd,connfd,n;
+	char str[strlen];
+	struct sockaddr_in server,client;
+	
+	sockfd=socket(AF_INET,SOCK_STREAM,0);
+	if(sockfd==-1){
+		printf("Socket creation failed\n");
+		exit(0);
+	}
+	
+	bzero(&server,sizeof(server));
+	server.sin_family=AF_INET;
+	server.sin_port=htons(port);
+	server.sin_addr.s_addr=htonl(INADDR_ANY);
+	
+	if(bind(sockfd,(struct sockaddr *)&server,sizeof(server))==-1){
+		printf("Socket binding failed\n");
+		exit(0);
+	}
+	
+	
+	if(listen(sockfd,5)==-1){
+		printf("Listening failed\n");
+		exit(0);
+	}
+	
+	n=sizeof(client);
+	connfd=accept(sockfd,(struct sockaddr *)&client, &n);
+	if(connfd==-1){
+		printf("Accept failed\n");
+		exit(0);
+	}
+		
+	/*Chat starts*/
+	read(connfd,str,sizeof(str));
+	
+	reverse(str);
+	
+	write(connfd,str,sizeof(str));
+	
+	
+	/*Chat ends*/
+	close(sockfd);
+}

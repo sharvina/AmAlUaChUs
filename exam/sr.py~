@@ -1,0 +1,16 @@
+x=input("enter the no of students")
+dict1={"name":1,"roll no":2,"mark":3,"branch":4}
+for i in range(x):
+	while(i<x):
+		dict.appent(name=raw_input("enter the name"))
+		dict.append(rollno=input("enter the roll number"))
+		mark=input("enter the mark")
+		branch=input("enter the branch")
+		i=i+1
+print dict			
+import pickle
+f=open("file.txt","w")
+f=pickle.dump("name","rb")
+f=close("file.txt","rb")
+f=pickle.load("file.txt","r")
+

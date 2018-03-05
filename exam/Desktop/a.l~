@@ -1,0 +1,20 @@
+%{
+#include<stdio.h>
+#include<string.h>
+FILE *f1;
+%}
+%%
+[a^2]*[b]* {fprintf(yyout,"string contains even num of a's and odd num of b's");return 1;}
+%%
+int yywrap(void)
+{return 1;}
+main()
+{
+yyin=fopen("sum.c","r");
+yyout=fopen("sa.c","w");
+yylex();
+}
+int yyerror()
+{
+printf("error");
+}

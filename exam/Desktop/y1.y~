@@ -1,0 +1,27 @@
+%{
+#include<stdio.h>
+%}
+%token A B
+%%
+S:A S B
+ |P A B
+ |A B
+ |B
+ ;
+P:P A 
+ |B
+ |
+ ;
+%%
+main()
+{
+ printf("enter the expression\n");
+ if(yyparse()==0)
+ printf("valid\n");
+}
+int yyerror()
+{
+printf("invalid\n");
+}
+ 
+ 
