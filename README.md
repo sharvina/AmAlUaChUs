@@ -1,2 +1,0 @@
-# AmAlUaChUs
-I AM HAPPY
